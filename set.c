@@ -59,7 +59,6 @@ Result Insert (Set mySet, Elem element)
 
 Result pop(Set mySet)
 {
-    //Set s;
     if ((mySet == NULL) || (mySet->top == 0))
         return Fail ;
 

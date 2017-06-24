@@ -1,13 +1,13 @@
 # depslib dependency file v1.0
-1498323484 source:c:\users\tomer\desktop\mycodes\adt_set\main.c
+1498332103 source:c:\users\tomer\desktop\mycodes\adt_set\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"set.h"
 
-1498316608 c:\users\tomer\desktop\mycodes\adt_set\set.h
+1498327145 c:\users\tomer\desktop\mycodes\adt_set\set.h
 
-1498321380 source:c:\users\tomer\desktop\mycodes\adt_set\set.c
+1498332103 source:c:\users\tomer\desktop\mycodes\adt_set\set.c
 	<stdio.h>
 	<stdlib.h>
 	"set.h"

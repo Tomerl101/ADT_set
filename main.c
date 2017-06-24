@@ -35,10 +35,8 @@ Elem copyStud(Elem x){
     if(y == NULL)
         return NULL;
 
-    strcpy(y->name, "tomer");
-
-   /* strcpy(y->name,(Stud)x->name);
-    y->id = (Stud)x->id;*/
+    strcpy(((Stud)y)->name,((Stud)x)->name);
+    y->id = ((Stud)x)->id;
 
     return y;
 }
@@ -67,7 +65,7 @@ int compStudId(Elem x, Elem y){
     if(y == NULL)
         return 1;
 
-    if((Stud)x->id ==(Stud)y->id)
+    if(((Stud)x)->id ==((Stud)y)->id)
         return 1;
 
     return 0;
@@ -99,7 +97,7 @@ int main()
 
     char x1[]="Tomer" ,y1[]="Shoham" ,z1[]= "Gal";
     double x= 4.5, y=5.5, z= 6.5;
-    Stud stud1 = {"Shoham", 123456, 010194}
+    Stud stud1 = {"Shoham", 123456, 1194};//numbers that start with 0 are treated as octal [0-7 only]
 
     Insert(s,(Elem)&x);
     Insert(s,(Elem)&y);
