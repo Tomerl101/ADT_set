@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "set.h"
 
+
 struct set_t
 {
     Elem* array ;
@@ -17,10 +18,10 @@ Set setCreate(int setSize,copy_fnc cpy, free_fnc fre, compare_fnc cmp)
     Set s = NULL;
     if (setSize <=0 || fre==NULL ||cpy == NULL || cmp==NULL )
         return NULL ;
-    s = (Set) malloc (sizeof(Set)) ;
+    s = (Set) malloc (sizeof(struct set_t)) ;
     if (s== NULL)
         return NULL;
-    s->array = (Elem*)malloc(setSize*sizeof(Elem)) ;
+    s->array = (Elem*)calloc(setSize,sizeof(Elem)) ;
     if (s->array == NULL)
     {
         free(s) ;
@@ -36,17 +37,18 @@ Set setCreate(int setSize,copy_fnc cpy, free_fnc fre, compare_fnc cmp)
 }
 
 Result Insert (Set mySet, Elem element)
- {
+{
     int i;
     Elem tmpelement = NULL;
     if ( mySet == NULL || element == NULL || mySet->top >= mySet->maxCapacity )
         return Fail;
 
-    /*for(i=0;i<mySet->top;i++)
+    for(i=0;i<mySet->top;i++)
     {
         if(mySet->compfunc(element,mySet->array[i]))
             return Fail;
-    }*/
+    }
+
     tmpelement=mySet->copfunc(element);
     if (tmpelement == NULL)
         return Fail ;
@@ -92,22 +94,12 @@ Result getByIndex(Set mySet, int index, Elem* returnVal)
     return (tmp == NULL) ? Fail : Success ;
 }
 
-void destroy (Set s)
-{
-    if (s == NULL)
-        return;
-
-    while (s->top > 0 && pop(s) == Success) ;
-    free(s->array);
-    free(s);
-}
-
 void printsetDouble(Set s)
 {
 int i;
 for(i=0;i<s->top;i++ )
     {
-    printf("%d\n",*((double*)s->array[i]));
+    printf("%lf\n",*((double*)s->array[i]));
     }
 }
 
@@ -120,3 +112,27 @@ for(i=0;i<s->top;i++ )
     }
 }
 
+void destroy (Set s)
+{
+    if (s == NULL)
+        return;
+    while (s->top > 0 && pop(s) == Success)
+    {
+        printf("SUCCESS...\n");
+    }
+
+    if(s->array != NULL)
+    {
+        free(s->array);
+        s->array = NULL;
+        printf("array deleted...\n");
+    }
+    if(s != NULL)
+    {
+        free(s);
+        s = NULL;
+        printf("set deleted...");
+    }
+
+    return;
+}
