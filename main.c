@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "set.h"
-
+#include "date.h"
 
 
 Elem copyDouble(Elem x){
@@ -97,9 +97,7 @@ int main()
 
     char x1[]="Tomer" ,y1[]="Shoham" ,z1[]= "Gal";
     double x= 4.5, y=5.5, z= 6.5;
-    Stud stud1 = {"Shoham", 123456, 1194};//numbers that start with 0 are treated as octal [0-7 only]
 
-    Insert(s,(Elem)&x);
     Insert(s,(Elem)&y);
     Insert(s,(Elem)&z);
     printsetDouble(s);
@@ -108,7 +106,7 @@ int main()
     Insert(sChar,(Elem)y1);
     Insert(sChar,(Elem)z1);
 
-    Insert(sStud, (Elem)&stud1);
+    //Insert(sStud, (Elem)&stud);
 
     int i=3;
 

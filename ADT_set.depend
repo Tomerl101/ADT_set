@@ -1,14 +1,40 @@
 # depslib dependency file v1.0
-1498332103 source:c:\users\tomer\desktop\mycodes\adt_set\main.c
+1498425497 source:c:\users\tomer\desktop\mycodes\adt_set\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"set.h"
+	"date.h"
 
 1498327145 c:\users\tomer\desktop\mycodes\adt_set\set.h
 
-1498332103 source:c:\users\tomer\desktop\mycodes\adt_set\set.c
+1498332815 source:c:\users\tomer\desktop\mycodes\adt_set\set.c
 	<stdio.h>
 	<stdlib.h>
 	"set.h"
+
+1498421864 source:c:\users\tomer\desktop\date.c
+	<stdio.h>
+	<stdlib.h>
+	"date.h"
+
+1498421866 c:\users\tomer\desktop\date.h
+	<stdio.h>
+	<stdlib.h>
+
+1498423261 source:c:\users\tomer\desktop\mycodes\adt_set\date.c
+	<stdio.h>
+	<stdlib.h>
+	"date.h"
+
+1498423261 c:\users\tomer\desktop\mycodes\adt_set\date.h
+
+1498423278 source:c:\users\tomer\desktop\mycodes\adt_set\person.c
+	"person.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1498423272 c:\users\tomer\desktop\mycodes\adt_set\person.h
+	"date.h"
 
