@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "set.h"
-#include "date.h"
+#include "person.h"
 
 
 Elem copyDouble(Elem x){
@@ -53,7 +53,7 @@ int compDouble(Elem x, Elem y){
 
 int compChar(Elem x, Elem y){
     int check;
-    printf("%s , %s \n",(char*)x , (char*)y);
+    //printf("%s , %s \n",(char*)x , (char*)y);
     check = strcmp((char*)x, (char*)y);
     if(check == 0)
         return 1;
@@ -82,39 +82,77 @@ void frees(Elem x){
 
 int main()
 {
-    Elem temp = NULL;
-    Set s=setCreate(5,copyDouble,frees,compDouble);
-    if(s == NULL)
+    int i,size, num = 0;
+    double data;
+    char string[256];
+    Elem tmp;
+    Person* p1;
+    Person* p2;
+
+    Set s = NULL;
+    printf("CHOOSE SET TO CREATE: \n");
+    printf("1.DOUBLE\n2.STRING\n3.STUDENTS\n");
+    scanf("%d",&num);
+    printf("CHOOSE THE SIZE OF THE SET: \n");
+    scanf("%d",&size);
+
+
+    switch(num)
+    {
+    case 1:
+        s=setCreate(size,copyDouble,frees,compDouble);
+        if(s == NULL)
         return 0;
-
-    Set sChar = setCreate(5,copyChar,frees,compChar);
-    if(sChar == NULL)
+        for(i=1; i<=size; i++)
+        {
+            printf("Enter value:\n");
+            scanf("%lf",&data);
+            Insert(s,(Elem)&data);
+        }
+        printf("SET VALUES:\n");
+        for(i=1; i<=size; i++)
+        {
+            getByIndex(s,i,&tmp);
+            printf("%.2lf,",*(double*)tmp);
+        }
+        break;
+    case 2:
+        fflush(stdin);
+        s=setCreate(size,copyChar,frees,compChar);
+        if(s == NULL)
         return 0;
-
-    Set sStud = setCreate(5, copyStud, frees, compStudId);
-    if(sStud == NULL)
-        return 0;
-
-    char x1[]="Tomer" ,y1[]="Shoham" ,z1[]= "Gal";
-    double x= 4.5, y=5.5, z= 6.5;
-
-    Insert(s,(Elem)&y);
-    Insert(s,(Elem)&z);
-    printsetDouble(s);
-
-    Insert(sChar,(Elem)x1);
-    Insert(sChar,(Elem)y1);
-    Insert(sChar,(Elem)z1);
-
-    //Insert(sStud, (Elem)&stud);
-
-    int i=3;
-
+        for(i=0; i<size; i++)
+        {
+            printf("Enter value:\n");
+            fgets(string,256,stdin);
+            Insert(s,(Elem)string);
+        }
+        printf("SET VALUES:\n");
+        for(i=1; i<=size; i++)
+        {
+            getByIndex(s,i,&tmp);
+            printf("%s,",(char*)tmp);
+        }
+        break;
+    case 3:
+        s=setCreate(size,copyStud,frees,compStudId);
+        if(s == NULL)
+            return 0;
+        for(i=0; i<2; i++)
+        {
+            p1= CreateNewPerson("tomer","123456",13,4,92);
+            Insert(s,(Elem)p1);
+            p2= CreateNewPerson("shoham","121212",14,1,95);
+            Insert(s,(Elem)p2);
+        }
+        break;
+    case 0:
+        break;
+    default:
+        printf("ERROR\n");
+    }
 
     destroy(s);
-    destroy(sChar);
-
-
     return 0;
 }
 

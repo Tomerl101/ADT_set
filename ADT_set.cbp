@@ -31,9 +31,17 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="date.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="date.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="person.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="person.h" />
 		<Unit filename="set.c">
 			<Option compilerVar="CC" />
 		</Unit>

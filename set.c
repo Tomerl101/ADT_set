@@ -93,45 +93,36 @@ Result getByIndex(Set mySet, int index, Elem* returnVal)
     return (tmp == NULL) ? Fail : Success ;
 }
 
-void printsetDouble(Set s)
-{
-int i;
-for(i=0;i<s->top;i++ )
-    {
-    printf("%lf\n",*((double*)s->array[i]));
-    }
-}
-
-void printsetChar(Set s)
-{
-int i;
-for(i=0;i<s->top;i++ )
-    {
-    printf("%c\n",*((char*)s->array[i]));
-    }
-}
-
 void destroy (Set s)
 {
     if (s == NULL)
         return;
-    while (s->top > 0 && pop(s) == Success)
-    {
-        printf("SUCCESS...\n");
-    }
+    while (s->top > 0 && pop(s) == Success);
 
     if(s->array != NULL)
     {
         free(s->array);
         s->array = NULL;
-        printf("array deleted...\n");
     }
     if(s != NULL)
     {
         free(s);
         s = NULL;
-        printf("set deleted...");
     }
-
     return;
+}
+
+void printsetDouble(Set s)
+{
+    int i;
+    for(i=0;i<s->top;i++ )
+        printf("%lf\n",*((double*)s->array[i]));
+}
+
+
+void printsetChar(Set s)
+{
+    int i;
+    for(i=0;i<s->top;i++ )
+        printf("%s\n",*((char*)s->array[i]));
 }
