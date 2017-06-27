@@ -9,6 +9,7 @@ typedef struct Date
     int year;
 }Date;
 
+/*Initialize the Date. return a pointer. If fails, return NULL*/
 Date* createDate(int day, int month, int year);
 
 void printDate(Date* date);

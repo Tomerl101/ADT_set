@@ -3,19 +3,27 @@
 #include <stdlib.h>
 #include <string.h>
 
-Person* CreateNewPerson(char* name, char* id, int day, int month, int year)
+Student* CreateNewStudent(char* name, char* id, int day, int month, int year)
 {
-    Person* newPerson = (Person*)malloc(sizeof(Person));
-    if(newPerson == NULL)
+    Student* newStudent = (Student*)malloc(sizeof(Student));
+    if(newStudent == NULL)
         return NULL;
-    newPerson->name = strdup(name);
+    newStudent->name = strdup(name);
     if(name == NULL)
         return NULL;
-    newPerson->id = strdup(id);
+    newStudent->id = strdup(id);
     if(name == NULL)
         return NULL;
-    newPerson->date = createDate(day, month, year);
+    newStudent->date = createDate(day, month, year);
     if(name == NULL)
         return NULL;
-    return newPerson;
+    return newStudent;
+}
+
+void printStud(Student* stud)
+{
+    printf("name: %s \n", stud->name);
+    printf("id: %s \n", stud->id);
+    printf("birthday: ");
+    printDate(stud->date);
 }

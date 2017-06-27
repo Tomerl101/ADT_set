@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include "set.h"
 
-
+/* A structure that represents a Set.
+One structure for each Set */
+/* Each stack keeps pointers to functions that treat elements */
 struct set_t
 {
     Elem* array ;
@@ -110,19 +112,4 @@ void destroy (Set s)
         s = NULL;
     }
     return;
-}
-
-void printsetDouble(Set s)
-{
-    int i;
-    for(i=0;i<s->top;i++ )
-        printf("%lf\n",*((double*)s->array[i]));
-}
-
-
-void printsetChar(Set s)
-{
-    int i;
-    for(i=0;i<s->top;i++ )
-        printf("%s\n",*((char*)s->array[i]));
 }

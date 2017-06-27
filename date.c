@@ -15,8 +15,6 @@ Date* createDate(int day, int month, int year)
     return date;
 }
 
-
-
 void printDate(Date* date)
 {
     printf("%d/", date->day);
@@ -25,3 +23,5 @@ void printDate(Date* date)
 
     return;
 }
+
+
